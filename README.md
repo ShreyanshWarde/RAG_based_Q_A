@@ -6,7 +6,7 @@ A modular FastAPI project that implements a Retrieval-Augmented Generation (RAG)
 
 - `POST /upload` for PDF and TXT ingestion
 - `POST /query` for grounded question answering
-- `sentence-transformers/all-MiniLM-L6-v2` embeddings
+- `sentence-transformers/all-mpnet-base-v2` embeddings
 - Local FAISS vector store with persisted chunk metadata
 - Strict anti-hallucination fallback when no relevant information is found
 - Basic in-memory rate limiting by client IP
@@ -36,8 +36,8 @@ requirements.txt
 ```mermaid
 flowchart TD
     A["User Upload"] --> B["Text Extraction"]
-    B --> C["Chunking (500 chars / 50 overlap)"]
-    C --> D["Embeddings: all-MiniLM-L6-v2"]
+    B --> C["Chunking (300 chars / 75 overlap)"]
+    C --> D["Embeddings:sentence-transformers/all-mpnet-base-v2"]
     D --> E["FAISS Vector Store"]
     F["User Query"] --> G["Query Embedding"]
     G --> H["Similarity Search (Top 3)"]
@@ -109,7 +109,7 @@ Interactive docs are available at:
 
 ### `POST /upload`
 
-Accepts a single PDF or TXT file, extracts text, chunks it, embeds it, and stores the result in FAISS.
+Accepts a single PDF, TXT, MD, DOC, DOCX, HTML, CSV, JSON, XML file, extracts text, chunks it, embeds it, and stores the result in FAISS.
 
 Example response:
 
