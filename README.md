@@ -161,7 +161,7 @@ If there is no relevant evidence in the vector store, the system returns:
 - **Background processing:** upload work runs in a worker thread via `asyncio.to_thread(...)`, so the FastAPI event loop stays responsive.
 - **Similarity filtering:** low-confidence matches are discarded instead of forcing an answer.
 
-More evaluation details are documented in [docs/explanation.md](/C:/Users/Shreyansh/OneDrive/Tài%20liệu/New%20project/docs/explanation.md).
+More evaluation details are documented in [docs/explanation.md](https://github.com/ShreyanshWarde/RAG_based_Q_A/blob/master/docs/explanation.md).
 
 ## Notes for Windows
 
